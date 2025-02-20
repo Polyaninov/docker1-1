@@ -28,3 +28,13 @@ docker run -d --name mongo-express \
     -e ME_CONFIG_BASICAUTH_USERNAME=admin \
     -e ME_CONFIG_BASICAUTH_PASSWORD=password \
     -p 8081:8081 mongo-express
+
+
+sudo docker run -d \
+  --name my_postgres \
+  -e POSTGRES_PASSWORD=passwd \
+  -v ~/pg_data:/var/lib/postgresql/data \
+  -p 5432:5432 \
+  postgres:9
+
+sudo docker exec -it my_postgres psql -U postgres
