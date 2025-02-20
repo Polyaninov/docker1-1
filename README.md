@@ -34,6 +34,13 @@ docker run -d --name mongo-express \
     -e ME_CONFIG_BASICAUTH_PASSWORD=password \
     -p 8081:8081 mongo-express
 
+devops@devops-Vir:~$ sudo docker inspect 65684ba7d41b | grep IPAddress 
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.3",
+                    "IPAddress": "172.17.0.3",
+
+    
+
 3. Запустить контейнер с postgres 9:
 задать переменную POSTGRES_PASSWORD со значением passwd
 создать директорию pg_data и прокинуть ее в контейнер по пути /var/lib/postgresql/data
@@ -46,3 +53,10 @@ sudo docker run -d \
   postgres:9
 
 sudo docker exec -it my_postgres psql -U postgres
+
+devops@devops-Vir:~$ sudo docker inspect e87876b388cb | grep IPAddress
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.4",
+                    "IPAddress": "172.17.0.4",
+
+
