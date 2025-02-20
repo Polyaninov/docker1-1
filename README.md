@@ -20,10 +20,13 @@ Example of make a text B,I,U
 sudo docker run -d -p 8090:80 -v ~/app:/usr/share/nginx/html --name mynginx nginx
 curl 127.0.0.1:8090
 
-devops@devops-Vir:~$ sudo docker inspect 6b51d63afb5c | grep IPAddress 
-            "SecondaryIPAddresses": null,
+devops@devops-Vir:~$ sudo docker inspect 6b51d63afb5c | grep -E '\b(IPAddress|Image|Volumes)\b'
+        "Image": "sha256:97662d24417b316f60607afbca9f226a2ba58f09d642f27b8e197a89859ddc8e",
+            "Image": "nginx",
+            "Volumes": null,
             "IPAddress": "172.17.0.2",
                     "IPAddress": "172.17.0.2",
+
 
 
 devops@devops-Vir:~$ sudo docker inspect 6b51d63afb5c | grep Image
@@ -45,8 +48,10 @@ docker run -d --name mongo-express \
     -e ME_CONFIG_BASICAUTH_PASSWORD=password \
     -p 8081:8081 mongo-express
 
-devops@devops-Vir:~$ sudo docker inspect 65684ba7d41b | grep IPAddress 
-            "SecondaryIPAddresses": null,
+devops@devops-Vir:~$ sudo docker inspect 65684ba7d41b | grep -E '\b(IPAddress|Image|Volumes)\b'
+        "Image": "sha256:6fe2220a3a52775d0ddfc59d6ca8140c80e5169c5c374f048b8a76f2f11820e7",
+            "Image": "mongo",
+            "Volumes": {
             "IPAddress": "172.17.0.3",
                     "IPAddress": "172.17.0.3",
 
@@ -65,8 +70,10 @@ sudo docker run -d \
 
 sudo docker exec -it my_postgres psql -U postgres
 
-devops@devops-Vir:~$ sudo docker inspect e87876b388cb | grep IPAddress
-            "SecondaryIPAddresses": null,
+devops@devops-Vir:~$ sudo docker inspect e87876b388cb | grep -E '\b(IPAddress|Image|Volumes)\b'
+        "Image": "sha256:027ccf656dc121a26b53cac03415d4326a75bf2751f177210d47793754e8b316",
+            "Image": "postgres:9",
+            "Volumes": {
             "IPAddress": "172.17.0.4",
                     "IPAddress": "172.17.0.4",
 
