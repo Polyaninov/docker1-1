@@ -26,6 +26,11 @@ devops@devops-Vir:~$ sudo docker inspect 6b51d63afb5c | grep IPAddress
                     "IPAddress": "172.17.0.2",
 
 
+devops@devops-Vir:~$ sudo docker inspect 6b51d63afb5c | grep Image
+        "Image": "sha256:97662d24417b316f60607afbca9f226a2ba58f09d642f27b8e197a89859ddc8e",
+            "Image": "nginx",
+
+
 2. Запустить контейнер с mongodb:
 задать переменную ME_CONFIG_MONGODB_ADMINUSERNAME со значением admin
 задать переменную ME_CONFIG_MONGODB_ADMINPASSWORD со значением adminpassword
