@@ -19,3 +19,12 @@ Example of make a text B,I,U
 
 sudo docker run -d -p 8090:80 -v ~/app:/usr/share/nginx/html --name mynginx nginx
 curl 127.0.0.1:8090
+
+
+sudo docker run -d -p 27017:27017 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -v ~/mongo_data:/data/db --name mongodb1  mongo
+
+docker run -d --name mongo-express \
+    -e ME_CONFIG_MONGODB_SERVER=mongo-container \
+    -e ME_CONFIG_BASICAUTH_USERNAME=admin \
+    -e ME_CONFIG_BASICAUTH_PASSWORD=password \
+    -p 8081:8081 mongo-express
