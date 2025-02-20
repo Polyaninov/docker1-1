@@ -20,6 +20,12 @@ Example of make a text B,I,U
 sudo docker run -d -p 8090:80 -v ~/app:/usr/share/nginx/html --name mynginx nginx
 curl 127.0.0.1:8090
 
+devops@devops-Vir:~$ sudo docker inspect 6b51d63afb5c | grep IPAddress 
+            "SecondaryIPAddresses": null,
+            "IPAddress": "172.17.0.2",
+                    "IPAddress": "172.17.0.2",
+
+
 2. Запустить контейнер с mongodb:
 задать переменную ME_CONFIG_MONGODB_ADMINUSERNAME со значением admin
 задать переменную ME_CONFIG_MONGODB_ADMINPASSWORD со значением adminpassword
