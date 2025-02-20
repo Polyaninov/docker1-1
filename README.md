@@ -20,6 +20,11 @@ Example of make a text B,I,U
 sudo docker run -d -p 8090:80 -v ~/app:/usr/share/nginx/html --name mynginx nginx
 curl 127.0.0.1:8090
 
+2. Запустить контейнер с mongodb:
+задать переменную ME_CONFIG_MONGODB_ADMINUSERNAME со значением admin
+задать переменную ME_CONFIG_MONGODB_ADMINPASSWORD со значением adminpassword
+создать директорию mongo_data и смонитировать ее внутрь контейнера в /data/db
+вывесить дефолтный порт монги на хост
 
 sudo docker run -d -p 27017:27017 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=admin -v ~/mongo_data:/data/db --name mongodb1  mongo
 
@@ -29,6 +34,9 @@ docker run -d --name mongo-express \
     -e ME_CONFIG_BASICAUTH_PASSWORD=password \
     -p 8081:8081 mongo-express
 
+3. Запустить контейнер с postgres 9:
+задать переменную POSTGRES_PASSWORD со значением passwd
+создать директорию pg_data и прокинуть ее в контейнер по пути /var/lib/postgresql/data
 
 sudo docker run -d \
   --name my_postgres \
