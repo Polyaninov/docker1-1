@@ -1,4 +1,4 @@
-1. Запустить контейнер nginx:
+sudo docker 1. Запустить контейнер nginx:
    
 создать и перенести в контейнер папку app (смонтировать в /usr/share/nginx/html)
 в папке app создать файл index.html с таким содержимым
@@ -52,7 +52,7 @@ docker run -d --name mongo-express \
 
 devops@devops-Vir:~$ sudo docker inspect 65684ba7d41b | grep -E '\b(IPAddress|Image|Volumes)\b'
         "Image": "sha256:6fe2220a3a52775d0ddfc59d6ca8140c80e5169c5c374f048b8a76f2f11820e7",
-            "Image": "mongo",
+    "mongo",
             "Volumes": {
             "IPAddress": "172.17.0.3",
                     "IPAddress": "172.17.0.3",
@@ -79,4 +79,4 @@ devops@devops-Vir:~$ sudo docker inspect e87876b388cb | grep -E '\b(IPAddress|Im
             "IPAddress": "172.17.0.4",
                     "IPAddress": "172.17.0.4",
 
-
+sudo docker inspect -f '{{.Mounts}}' 65684ba7d41b
